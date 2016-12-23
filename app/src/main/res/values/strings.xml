@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">RegisterandLogin</string>
+    <string name="title_activity_register">Register</string>
+</resources>
