@@ -68,6 +68,8 @@ public class Database extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
 
         Cursor res = db.rawQuery(" select * from " + mTable_Name + " WHERE TRIM ( "+ userName+" ) = "+mCol3 ,null);
+        //Cursor res = db.rawQuery(" select * from " + mTable_Name + " WHERE TRIM ( "+ userName+" ) = "+mCol3 ,null);
+        //Cursor res = db.rawQuery(" select * from " + mTable_Name + " WHERE TRIM ( "+ userName+" ) = "+mCol3 ,null);
 
 
         return res;
