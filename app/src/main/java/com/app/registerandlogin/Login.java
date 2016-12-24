@@ -33,7 +33,7 @@ public class Login extends AppCompatActivity {
         mBtnLogin = (Button) findViewById(R.id.idBtnLlogin);
 
         loginMethod();
-        registerMethod();
+        registerMethoddd();
     }
 
 
@@ -51,7 +51,7 @@ public class Login extends AppCompatActivity {
                     String userName, pass;
                     userName = mEtUserName.getText().toString();
                     pass = mEtPass.getText().toString();
-
+            mMyDB.open();
                     Cursor res = mMyDB.getlogin(userName, pass);
                     if (res.getCount() == 0) {
                         Toast.makeText(Login.this, "Kindly Register First", Toast.LENGTH_SHORT).show();
@@ -86,7 +86,7 @@ public class Login extends AppCompatActivity {
     }
 
 
-    public void registerMethod() {
+    public void registerMethoddd() {
 
         mTvClickToRegister.setOnClickListener(new View.OnClickListener() {
             @Override

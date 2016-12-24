@@ -21,7 +21,7 @@ public class Register extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-       // mMyDB = new Database(this);
+        mMyDB = new Database(this);
         init();
     }
 
@@ -56,7 +56,9 @@ public class Register extends AppCompatActivity {
                     mobNo = mEtMobNo.getText().toString();
                     boolean isInserted;
                     isInserted = mMyDB.insertDatabase(fName, lName, userName, pass, mobNo);
+
                     if (isInserted == true) {
+
                         Toast.makeText(Register.this, "SuccessFull Inserted", Toast.LENGTH_SHORT).show();
                     } else {
                         Toast.makeText(Register.this, "Not Inserted Kindly Register it Again", Toast.LENGTH_SHORT).show();
