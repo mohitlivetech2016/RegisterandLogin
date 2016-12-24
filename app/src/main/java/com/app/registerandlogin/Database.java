@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.provider.Settings;
 
 /**
  * Created by Android on 22-Dec-16.
@@ -20,9 +21,9 @@ public class Database extends SQLiteOpenHelper {
     public static final String mCol4 = "password";
     public static final String mCol5 = "contactno";
     // private static final String CREATE = "create table "+ mTable_Name + "( "+mCol1 +"varchar(20),"+mCol2 +" varchar(20) ,"+mCol3+" varchar(30) primary key,"+mCol4+" varchar(20), "+mCol5+" varchar(10));";
-    private static final String CREATE = "create table details(firstName varchar(20), lastName varchar(20), userName varchar(20), password varchar(20),contact_No varchar(20));";
+    private static final String CREATE = "create table details ( firstName varchar(20), lastName varchar(20), userName varchar(20), password varchar(20), contactno varchar(20))";
 
-    public SQLiteDatabase db;
+    //public SQLiteDatabase db;
 
 
 
@@ -53,7 +54,7 @@ public class Database extends SQLiteOpenHelper {
         sd.close();;
     }
 
-    boolean insertDatabase(String fName, String lName, String userName, String password, String contactNo) {
+    public boolean insertDatabasee(String fName, String lName, String userName, String password, String contactNo) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(mCol1, fName);
@@ -61,9 +62,14 @@ public class Database extends SQLiteOpenHelper {
         contentValues.put(mCol3, userName);
         contentValues.put(mCol4, password);
         contentValues.put(mCol5, contactNo);
+        System.out.print(contentValues);
+
 
 
         long result = db.insert(mTable_Name, null, contentValues);
+
+
+        db.close();
 
         System.out.print(result);
         if (result == -1)

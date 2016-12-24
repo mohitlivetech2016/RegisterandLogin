@@ -34,7 +34,7 @@ public class Register extends AppCompatActivity {
         mEtMobNo=(EditText)findViewById(R.id.idEtR_MobNo);
         mBtnRegister=(Button)findViewById(R.id.idBtnRregister);
         registerMethod();
-
+        //mMyDB = new Database();
 
     }
 
@@ -55,7 +55,7 @@ public class Register extends AppCompatActivity {
                     pass = mEtPass.getText().toString();
                     mobNo = mEtMobNo.getText().toString();
                     boolean isInserted;
-                    isInserted = mMyDB.insertDatabase(fName, lName, userName, pass, mobNo);
+                    isInserted = mMyDB.insertDatabasee(fName, lName, userName, pass, mobNo);
 
                     if (isInserted == true) {
 

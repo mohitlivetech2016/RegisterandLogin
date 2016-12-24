@@ -2,6 +2,7 @@ package com.app.registerandlogin;
 
 import android.content.Intent;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -16,6 +17,7 @@ public class Login extends AppCompatActivity {
     TextView mTvClickToRegister;
     Button mBtnLogin;
     Database mMyDB;
+    SQLiteDatabase sqLiteDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,9 +57,12 @@ public class Login extends AppCompatActivity {
                     Cursor res = mMyDB.getlogin(userName, pass);
                     if (res.getCount() == 0) {
                         Toast.makeText(Login.this, "Kindly Register First", Toast.LENGTH_SHORT).show();
-                    } else {
+                    }
+                    else
+                    {
 
                         Toast.makeText(Login.this, "Login Successfully", Toast.LENGTH_SHORT).show();
+
                     }
                 }
                 else {
@@ -98,5 +103,11 @@ public class Login extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    protected void onDestroy() {
+        mMyDB.close();
+        super.onDestroy();
     }
 }
