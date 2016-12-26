@@ -15,13 +15,13 @@ public class Database extends SQLiteOpenHelper {
 
     public static final String mDatabase_Name = "loginandregisterdb";
     public static final String mTable_Name = "details";
-    public static final String mCol1 = "firstName";
+    public static final String mCol1 = "firstname";
     public static final String mCol2 = "lastname";
     public static final String mCol3 = "username";
     public static final String mCol4 = "password";
     public static final String mCol5 = "contactno";
     // private static final String CREATE = "create table "+ mTable_Name + "( "+mCol1 +"varchar(20),"+mCol2 +" varchar(20) ,"+mCol3+" varchar(30) primary key,"+mCol4+" varchar(20), "+mCol5+" varchar(10));";
-    private static final String CREATE = "create table details ( firstName varchar(20), lastName varchar(20), userName varchar(20), password varchar(20), contactno varchar(20))";
+    private static final String CREATE = "create table details ( firstname varchar(20), lastname varchar(20), username varchar(20), password varchar(20), contactno varchar(20))";
 
     //public SQLiteDatabase db;
 
